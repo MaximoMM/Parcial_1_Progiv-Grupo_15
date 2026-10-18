@@ -1,6 +1,6 @@
-const Producto = require('./Producto');
+import Producto from './Producto.js';
 
-class Expreso extends Producto {
+export class Expreso extends Producto {
     constructor(id, nombre, precioBase, tamanio, gramosCafe, variedad, precioPorGrama) {
         super(id, nombre, precioBase);
         this.tamanio = tamanio;
@@ -8,11 +8,10 @@ class Expreso extends Producto {
         this.variedad = variedad;
         this.precioPorGrama = precioPorGrama;
     }
-
     calcularPrecio() {
         const costoCafe = this.gramosCafe * this.precioPorGrama;
         return this.precioBase + costoCafe;
     }
 }
 
-module.exports = Expreso;
+export default Expreso;

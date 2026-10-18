@@ -1,4 +1,4 @@
-class Producto {
+export default class Producto {
     constructor(id, nombre, precioBase) {
         if (this.constructor === Producto) {
             throw new Error("No se puede instanciar la clase abstracta Producto.");
@@ -7,10 +7,7 @@ class Producto {
         this.nombre = nombre;
         this.precioBase = precioBase;
     }
-
     calcularPrecio() {
         throw new Error("Método calcularPrecio() debe ser implementado.");
     }
 }
-
-module.exports = Producto;

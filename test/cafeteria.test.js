@@ -2,35 +2,32 @@ import { describe, it, expect, beforeEach } from "vitest";
 import request from "supertest";
 import app from "../app.js";
 
-import { Expreso } from "../models/Expreso.js";
-import { Filtrado } from "../models/Filtrado.js";
-import { Pasteleria } from "../models/Pasteleria.js";
-import { Pedido } from "../models/Pedido.js";
-
-import { pedidos } from "../data/data.js";
+import { Expreso } from "../src/models/Expreso.js";
+import { Filtrado } from "../src/models/Filtrado.js";
+import { Pasteleria } from "../src/models/Pasteleria.js";
+import { Pedido } from "../src/models/Pedido.js";
+import { pedidos } from "../src/data/data.js";
 
 describe("1. Tests Unitarios: Modelos y Polimorfismo (calcularPrecio)", () => {
   it("Debe calcular correctamente el precio de un Expreso según tamaño y variedad (Tabla PDF)", () => {
-
-    const expresoBrasil = new Expreso(1, "Expreso", 2500, "Pocillo", "Brasil");
+    const expresoBrasil = new Expreso(1, "Expreso", 2500, "Pocillo", 18, "Brasil", 140);
     expect(expresoBrasil.calcularPrecio()).toBe(5020);
 
-    const expresoColombia = new Expreso(2, "Expreso", 2500, "Mediano", "Colombia");
+    const expresoColombia = new Expreso(2, "Expreso", 2500, "Mediano", 27, "Colombia", 180);
     expect(expresoColombia.calcularPrecio()).toBe(7360);
 
-    const expresoEtiopia = new Expreso(3, "Expreso", 2500, "Taza grande", "Etiopía");
+    const expresoEtiopia = new Expreso(3, "Expreso", 2500, "Taza grande", 36, "Etiopía", 240);
     expect(expresoEtiopia.calcularPrecio()).toBe(11140);
   });
 
   it("Debe calcular correctamente el precio de un Café Filtrado según tamaño y variedad (Tabla PDF)", () => {
-
-    const filtradoBrasil = new Filtrado(4, "Filtrado", 3200, "Pocillo", "Brasil");
+    const filtradoBrasil = new Filtrado(4, "Filtrado", 3200, "Pocillo", 6, "Brasil", 140);
     expect(filtradoBrasil.calcularPrecio()).toBe(4040);
 
-    const filtradoColombia = new Filtrado(5, "Filtrado", 3200, "Mediano", "Colombia");
+    const filtradoColombia = new Filtrado(5, "Filtrado", 3200, "Mediano", 15, "Colombia", 180);
     expect(filtradoColombia.calcularPrecio()).toBe(5900);
 
-    const filtradoEtiopia = new Filtrado(6, "Filtrado", 3200, "Taza grande", "Etiopía");
+    const filtradoEtiopia = new Filtrado(6, "Filtrado", 3200, "Taza grande", 25, "Etiopía", 240);
     expect(filtradoEtiopia.calcularPrecio()).toBe(9200);
   });
 

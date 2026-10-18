@@ -1,5 +1,5 @@
 import express from "express";
-import cafeteriaRoutes from "./routes/cafeteriaRoutes.js";
+import cafeteriaRoutes from "./src/routes/cafeteriaRoutes.js";
 
 const app = express();
 
