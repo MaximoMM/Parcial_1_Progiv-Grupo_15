@@ -1,12 +1,13 @@
-import Producto from './Producto.js';
+const Producto = require('./Producto');
 
-export class Pasteleria extends Producto {
+class Pasteleria extends Producto {
     constructor(id, nombre, precioBase) {
         super(id, nombre, precioBase);
     }
+
     calcularPrecio() {
         return this.precioBase;
     }
 }
 
-export default Pasteleria;
+module.exports = Pasteleria;
